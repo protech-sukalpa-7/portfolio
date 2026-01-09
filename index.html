@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio | Creative Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Custom animations and styles */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .skill-bar {
+            transition: width 1.5s ease-in-out;
+        }
+
+        .cert-badge {
+            transition: all 0.3s ease;
+        }
+
+        .cert-badge:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-indigo-600">Portfolio</div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-indigo-600 transition-colors">Home</a>
+                    <a href="#about" class="hover:text-indigo-600 transition-colors">About</a>
+                    <a href="#skills" class="hover:text-indigo-600 transition-colors">Skills</a>
+                    <a href="#certifications" class="hover:text-indigo-600 transition-colors">Certifications</a>
+                    <a href="#projects" class="hover:text-indigo-600 transition-colors">Projects</a>
+                    <a href="#contact" class="hover:text-indigo-600 transition-colors">Contact</a>
+                </div>
+                
+                <button class="md:hidden text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg text-white min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6 py-20">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="animate-fade-in-up">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">Hi, I'm <span class="text-yellow-300">Sukalpa Manna</span></h1>
+                    <h2 class="text-xl md:text-2xl mb-6 opacity-90">AI & ML Devloper</h2>
+                    <p class="text-lg mb-8 opacity-80">I create beautiful, functional, and user-centered digital experiences that drive results and engage audiences.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#projects" class="bg-white text-indigo-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+                            View Work
+                        </a>
+                        <a href="#contact" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-indigo-600 transition-colors">
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="animate-fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-white/20 rounded-full blur-xl"></div>
+                        <img 
+                            src="me.jpg" 
+                            alt="Professional headshot of a software developer in a modern office environment with a friendly and confident expression"
+                            class="relative w-full max-w-md mx-auto rounded-full border-4 border-white shadow-2xl"
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">About Me</h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img 
+                        src="headshot_photo.png" 
+                        alt="Developer working on a laptop in a modern co-working space with plants and natural lighting"
+                        class="rounded-lg shadow-xl w-full"
+                    >
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Crafting Digital Excellence</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        With over 2 years of experience in web development and design, I specialize in creating 
+                        responsive, accessible, and performant web applications. My passion lies in turning 
+                        complex problems into simple, beautiful, and intuitive solutions.
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        I believe in the power of clean code, thoughtful design, and continuous learning. 
+                        Whether it's a small business website or a large-scale application, I approach 
+                        each project with the same level of dedication and attention to detail.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Name:</h4>
+                            <p class="text-gray-600">Sukalpa Manna</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Email:</h4>
+                            <p class="text-gray-600">mannasukalpa@gmail.com</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Location:</h4>
+                            <p class="text-gray-600">Barrackpore,West Bengal</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Available:</h4>
+                            <p class="text-gray-600">Full Time/Freelance</p>
+                        </div>
+                    </div>
+                    
+                    <a 
+  href="https://drive.google.com/uc?export=download&id=12g2rNl4fH7Br0FO1rm_DEnhZJgxxU4Sl"
+  class="group relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-semibold text-indigo-600 border-2 border-indigo-600 rounded-full transition-all duration-300 hover:text-white"
+>
+    <!-- Background animation -->
+    <span class="absolute inset-0 w-0 bg-indigo-600 transition-all duration-300 ease-out group-hover:w-full"></span>
+
+    <!-- Content -->
+    <span class="relative flex items-center gap-2">
+        Download Resume
+        <i class="fas fa-download transform transition-transform duration-300 group-hover:translate-y-1"></i>
+    </span>
+</a>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Skills & Technologies</h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+                    A comprehensive toolkit of technologies and frameworks that I use to bring ideas to life
+                </p>
+            </div>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+
+    <!-- Programming -->
+    <div class="text-center p-6 bg-white rounded-lg shadow-sm card-hover">
+        <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-code text-3xl text-indigo-600"></i>
+        </div>
+        <h3 class="font-semibold mb-2">Programming</h3>
+        <p class="text-gray-600 text-sm">
+            Python, C, C++, Basic JavaScript
+        </p>
+    </div>
+
+    <!-- Machine Learning -->
+    <div class="text-center p-6 bg-white rounded-lg shadow-sm card-hover">
+        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-brain text-3xl text-green-600"></i>
+        </div>
+        <h3 class="font-semibold mb-2">Machine Learning & AI</h3>
+        <p class="text-gray-600 text-sm">
+            Machine Learning, NLP, Supervised Models, Evaluation
+        </p>
+    </div>
+
+    <!-- Computer Vision -->
+    <div class="text-center p-6 bg-white rounded-lg shadow-sm card-hover">
+        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-eye text-3xl text-red-600"></i>
+        </div>
+        <h3 class="font-semibold mb-2">Computer Vision</h3>
+        <p class="text-gray-600 text-sm">
+            OpenCV, Face Recognition, Image Processing
+        </p>
+    </div>
+
+    <!-- Tools -->
+    <div class="text-center p-6 bg-white rounded-lg shadow-sm card-hover">
+        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-tools text-3xl text-purple-600"></i>
+        </div>
+        <h3 class="font-semibold mb-2">Tools & Platforms</h3>
+        <p class="text-gray-600 text-sm">
+            Streamlit, NumPy, Pandas, Git, GitHub, Oracle Cloud
+        </p>
+    </div>
+
+</div>
+
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h4 class="font-semibold mb-4">Technical Skills</h4>
+                    <div class="space-y-4">
+                        
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>PHP</span>
+                                <span>50%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar bg-indigo-600 h-2 rounded-full" style="width: 50%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>C</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar bg-indigo-600 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Python</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar bg-indigo-600 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>C++</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar bg-indigo-600 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Professional Skills</h4>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Problem Solving</span>
+                                <span>92%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar bg-green-600 h-2 rounded-full" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Team Collaboration</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar bg-green-600 h-2 rounded-full" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Project Management</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar bg-green-600 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Certifications Section -->
+<section id="certifications" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Certifications & Achievements</h2>
+            <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+                Professional certifications and continuous learning journey
+            </p>
+        </div>
+
+        <!-- Certification Cards -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Certification 1 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-lg cert-badge border-2 border-red-100">
+                <div class="relative overflow-hidden h-58 bg-gradient-to-br from-red-50 to-red-50">
+                    <img 
+                        src="hp-foundation.jpg" 
+                        alt="HP AI for beginners Certificate"
+                        class="w-full h-full object-cover"
+                    >
+                    <div class="absolute top-4 right-4">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg">
+                            <i class="fas fa-robot text-2xl text-red-600"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-bold text-xl text-gray-800 mb-2">HP AI for beginners</h3>
+                    <p class="text-sm text-red-600 font-semibold mb-3">HP Foundation Services</p>
+                    <p class="text-gray-600 text-sm mb-4">Beginner certification in AI development and deployment</p>
+                    <div class="flex justify-between items-center text-sm pt-4 border-t border-gray-100">
+                        <span class="text-gray-500"><i class="far fa-calendar mr-1"></i>Nov 2025</span>
+                        <a href="HP certificate.pdf" class="text-red-600 hover:text-red-700 font-semibold">
+                            View <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certification 2 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-lg cert-badge border-2 border-green-100">
+                <div class="relative overflow-hidden h-58 bg-gradient-to-br from-green-50 to-emerald-50">
+                    <img 
+                        src="OCI AI foundation.jpeg" 
+                        alt="AI Foundation Associate Certificate"
+                        class="w-full h-full object-cover"
+                    >
+                    <div class="absolute top-4 right-4">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg">
+                            <i class="fas fa-brain text-2xl text-green-600"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-bold text-xl text-gray-800 mb-2">AI Foundation Associate</h3>
+                    <p class="text-sm text-green-600 font-semibold mb-3">Oracle Cloud Services</p>
+                    <p class="text-gray-600 text-sm mb-4">Machine learning and AI fundamentals</p>
+                    <div class="flex justify-between items-center text-sm pt-4 border-t border-gray-100">
+                        <span class="text-gray-500"><i class="far fa-calendar mr-1"></i>Oct 2025</span>
+                        <a href="OCI ai foundation eCertificate.pdf" class="text-green-600 hover:text-green-700 font-semibold">
+                            View <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certification 3 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-lg cert-badge border-2 border-indigo-100">
+                <div class="relative overflow-hidden h-58 bg-gradient-to-br from-indigo-50 to-purple-50">
+                    <img 
+                        src="gen ai badge.jpg" 
+                        alt="OCI Gen AI Professional Certificate"
+                        class="w-full h-full object-cover"
+                    >
+                    <div class="absolute top-4 right-4">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg">
+                            <i class="fas fa-robot text-2xl text-indigo-600"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-bold text-xl text-gray-800 mb-2">Oracle Cloud Infrastructure Gen AI Professional</h3>
+                    <p class="text-sm text-indigo-600 font-semibold mb-3">Oracle Cloud Services</p>
+                    <p class="text-gray-600 text-sm mb-4">Professional certification in Gen AI development and deployment</p>
+                    <div class="flex justify-between items-center text-sm pt-4 border-t border-gray-100">
+                        <span class="text-gray-500"><i class="far fa-calendar mr-1"></i>Nov 2025</span>
+                        <a href="OCI Gen AI eCertificate.pdf" class="text-indigo-600 hover:text-indigo-700 font-semibold">
+                            View <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Achievement Stats - Centered -->
+        <div class="mt-16 flex justify-center">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl">
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-indigo-600 mb-2">4</div>
+                    <p class="text-gray-600">Certifications</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-green-600 mb-2">20+</div>
+                    <p class="text-gray-600">Learning Hours</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-purple-600 mb-2">4</div>
+                    <p class="text-gray-600">Platforms</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-orange-600 mb-2">86%</div>
+                    <p class="text-gray-600">Average Score</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- View All Link -->
+        <div class="text-center mt-12">
+            <a href="certificates.html" class="inline-flex items-center text-indigo-600 font-semibold hover:text-indigo-700">
+                View All Certifications
+                <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Featured Projects</h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+                    A selection of my recent work showcasing diverse technologies and creative solutions
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover">
+                    <div class="relative overflow-hidden">
+                        <img 
+                            src="fake news detector.png" 
+                            alt="Modern fake neww website dashboard with jupyter notebook trained ml model and data visualization
+                            "
+                            class="w-full h-50 object-cover"
+                        >
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-indigo-600 text-white px-3 py-1 rounded-full text-sm">supervised ml</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-semibold text-xl mb-2">Fake News Dtector</h3>
+                        <p class="text-gray-600 mb-4">A Fake News Detector built using machine learning to classify news articles as real or fake, enhancing online information reliability.
+Leverages natural language processing (NLP) and data-driven algorithms for accurate, automated detection.</p>
+                        <div class="flex justify-between items-center">
+                            <a href="https://fakenews-detector-sukalpa.streamlit.app/" class="text-indigo-600 hover:text-indigo-700 font-semibold">View Project</a>
+                            <a href="https://github.com/protech-sukalpa-7/Fake-News-Detection" class="text-gray-600 hover:text-gray-800">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover">
+                    <div class="relative overflow-hidden">
+                        <img 
+                            src="harry potter invisible cloak.png" 
+                            alt="Mobile banking app interface with clean design, charts, and transaction history"
+                            class="w-full h-50 object-cover"
+                        >
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-red-600 text-white px-3 py-1 rounded-full 
+                            text-sm">Computer Vision</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-semibold text-xl mb-2">Harry Potter invisible cloak</h3>
+                        <p class="text-gray-600 mb-4">🪄 Harry Potter Invisibility Cloak is a fun computer vision project built using OpenCV and Streamlit. It detects a specific colored cloth (like red) in real-time video and replaces it with the background, creating a magical invisibility effect — inspired by the wizarding world of Harry Potter!</p>
+                        <div class="flex justify-between items-center">
+                            <a href="https://harrypotter-invisible-cloak.streamlit.app/" class="text-indigo-600 hover:text-indigo-700 font-semibold">View Project</a>
+                            <a href="https://github.com/protech-sukalpa-7/invisible-cloak" class="text-gray-600 hover:text-gray-800">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover">
+                    <div class="relative overflow-hidden">
+                        <img 
+                            src="Smart Attendence system.jpeg" 
+                            alt="Healthcare management system with patient records and scheduling interface"
+                            class="w-full h-50 object-cover"
+                        >
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">Computer 
+                                Vision</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-semibold text-xl mb-2">Smart Attendence system</h3>
+                        <p class="text-gray-600 mb-4">A Smart Attendance System built with Python, 
+                            OpenCV, and Streamlit that automatically recognizes faces in real time 
+                            and records attendance through a simple, interactive web interface.</p>
+                        <div class="flex justify-between items-center">
+                            <a href="https://sm-face-attendance-system.streamlit.app/" class="text-indigo-600 hover:text-indigo-700 font-semibold">View Project</a>
+                            <a href="https://github.com/protech-sukalpa-7/smart-attendance-system/blob/main/app.py" class="text-gray-600 hover:text-gray-800">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="projects.html" class="inline-flex items-center text-indigo-600 font-semibold hover:text-indigo-700">
+                    View All Projects
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Get In Touch</h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+                    Have a project in mind? Let's work together to bring your ideas to life
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Let's Start a Conversation</h3>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        I'm always excited to take on new challenges and collaborate on innovative projects. 
+                        Whether you need a complete web application, a redesign, or technical consultation, 
+                        I'm here to help.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-indigo-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Email</h4>
+                                <p class="text-gray-600">mannasukalpa@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-phone text-indigo-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Phone</h4>
+                                <p class="text-gray-600">+91 8972239462</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt text-indigo-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Location</h4>
+                                <p class="text-gray-600">Nandigram, West Bengal</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-4 mt-8">
+                        <a href="https://www.linkedin.com/in/sukalpa-manna-095168322/" class="w-10 h-10 bg-indigo-600 text-white rounded-full flex items-center justify-center hover:bg-indigo-700">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/protech-sukalpa-7" class="w-10 h-10 bg-indigo-600 text-white rounded-full flex items-center justify-center hover:bg-indigo-700">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=100074382331409" class="w-10 h-10 bg-indigo-600 text-white rounded-full flex items-center justify-center hover:bg-indigo-700">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-lg shadow-sm">
+                    <form 
+                    action="https://formspree.io/f/xaqnrvny"
+                    method="POST"
+                    class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                            <input type="text" name="name"required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500"
+                            >
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" name="email"required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500"
+                            >
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                        <input type="text" name="subject"required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500"
+                    >
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                    <textarea 
+                    name="message"
+                    rows="5"required
+                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500"
+                    ></textarea>
+                </div>
+                <!-- Prevent Spam -->
+                <input type="hidden" name="_captcha" value="false">
+                <button type="submit"
+                class="w-full bg-indigo-600 text-white py-3 px-6 rounded-md 
+                font-semibold hover:bg-indigo-700"
+                >Send Message
+            </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <div class="text-2xl font-bold mb-4">Portfolio</div>
+                <p class="text-gray-400 mb-8 max-w-2xl mx-auto">
+                    Creating digital experiences that make a difference
+                </p>
+                
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="https://www.linkedin.com/in/sukalpa-manna-095168322/" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="https://github.com/protech-sukalpa-7" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com/sukalpa_manna.7/" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                </div>
+                
+                <div class="border-t border-gray-700 pt-8">
+                    <p class="text-gray-400">
+                        © 2024 Sukalpa Manna. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate skill bars on scroll
+        const animateSkillBars = () => {
+            const skillBars = document.querySelectorAll('.skill-bar');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const width = entry.target.style.width;
+                        entry.target.style.width = '0';
+                        setTimeout(() => {
+                            entry.target.style.width = width;
+                        }, 100);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            skillBars.forEach(bar => observer.observe(bar));
+        };
+
+        // Initialize animations when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            animateSkillBars();
+            
+            // Add scroll animation to elements
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in-up');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.card-hover').forEach(card => {
+                observer.observe(card);
+            });
+
+            document.querySelectorAll('.cert-badge').forEach(cert => {
+                observer.observe(cert);
+            });
+        });
+
+        // Mobile menu toggle (can be expanded)
+        document.querySelector('button').addEventListener('click', () => {
+            alert('Mobile menu functionality would be implemented here');
+        });
+    </script>
+</body>
+</html>
