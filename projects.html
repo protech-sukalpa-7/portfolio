@@ -31,26 +31,87 @@
             box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
         }
 
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+
         .filter-btn.active {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
         }
+        .btn-3d {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 8px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* Hover = lift */
+.btn-3d:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* Active (click) = press */
+.btn-3d:active {
+    transform: translateY(4px);
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25);
+}
+/* 3D Link Button */
+.link-3d {
+    position: relative;
+    padding: 0.5rem 0.75rem;
+    border-radius: 9999px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+/* Hover = lift */
+.link-3d:hover {
+    transform: translateY(-2px);
+    background-color: rgba(99, 102, 241, 0.08);
+    box-shadow:
+        0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Press = sink */
+.link-3d:active {
+    transform: translateY(1px);
+    box-shadow:
+        0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Arrow motion */
+.link-3d:hover i {
+    transform: translateX(6px);
+}
     </style>
 </head>
 
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50 text-gray-800 font-sans">
 
-<!-- Navbar -->
+<!-- NAVBAR -->
 <nav class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
         <div class="text-2xl font-bold text-indigo-600">Portfolio</div>
-        <a href="index.html" class="hidden md:block bg-indigo-600 text-white px-6 py-2 rounded-full hover:bg-indigo-700">
+
+        <div class="hidden md:flex space-x-8">
+            <a href="index.html" class="hover:text-indigo-600">Home</a>
+            <a href="index.html#about" class="hover:text-indigo-600">About</a>
+            <a href="index.html#skills" class="hover:text-indigo-600">Skills</a>
+            <a href="index.html#certifications" class="hover:text-indigo-600 transition-
+                    colors">Certifications</a>
+            <a href="#" class="text-indigo-600 font-semibold">Projects</a>
+            <a href="index.html#contact" class="hover:text-indigo-600">Contact</a>
+        </div>
+
+        <a href="index.html" class="btn-3d bg-indigo-600 border-2 border-indigo text-white
+                            px-8 py-3 rounded-full font-semibold">
             Back to Home
         </a>
     </div>
 </nav>
 
-<!-- Hero -->
+<!-- HERO -->
 <section class="gradient-bg text-white pt-32 pb-20">
     <div class="container mx-auto px-6 text-center animate-fade-in-up">
         <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -58,24 +119,24 @@
         </div>
         <h1 class="text-4xl md:text-6xl font-bold mb-6">Projects Portfolio</h1>
         <p class="text-xl opacity-90 max-w-2xl mx-auto">
-            A curated collection of real-world projects in Machine Learning, Computer Vision, and AI-powered applications.
+            Real-world Machine Learning, Computer Vision, and AI-powered applications.
         </p>
 
-        <!-- Stats -->
+        <!-- STATS -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 max-w-4xl mx-auto">
-            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+            <div class="bg-white/10 rounded-lg p-6">
                 <div class="text-3xl font-bold mb-2">5+</div>
                 <div class="text-sm opacity-80">Projects</div>
             </div>
-            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+            <div class="bg-white/10 rounded-lg p-6">
                 <div class="text-3xl font-bold mb-2">3</div>
                 <div class="text-sm opacity-80">Domains</div>
             </div>
-            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+            <div class="bg-white/10 rounded-lg p-6">
                 <div class="text-3xl font-bold mb-2">AI</div>
                 <div class="text-sm opacity-80">Focused</div>
             </div>
-            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+            <div class="bg-white/10 rounded-lg p-6">
                 <div class="text-3xl font-bold mb-2">100%</div>
                 <div class="text-sm opacity-80">Hands-on</div>
             </div>
@@ -83,122 +144,157 @@
     </div>
 </section>
 
-<!-- Filters -->
+<!-- FILTERS -->
 <section class="py-8 bg-white shadow-sm sticky top-16 z-40">
     <div class="container mx-auto px-6">
         <div class="flex flex-wrap justify-center gap-4">
-            <button class="filter-btn active px-6 py-2 rounded-full border-2 border-indigo-600" data-filter="all">
-                All Projects
-            </button>
-            <button class="filter-btn px-6 py-2 rounded-full border-2 border-indigo-600 text-indigo-600" data-filter="ml">
-                <i class="fas fa-brain mr-2"></i>ML
-            </button>
-            <button class="filter-btn px-6 py-2 rounded-full border-2 border-indigo-600 text-indigo-600" data-filter="cv">
-                <i class="fas fa-eye mr-2"></i>Computer Vision
-            </button>
-            <button class="filter-btn px-6 py-2 rounded-full border-2 border-indigo-600 text-indigo-600" data-filter="ai">
-                <i class="fas fa-robot mr-2"></i>AI
-            </button>
+            <button class="filter-btn active px-6 py-2 rounded-full border-2 border-indigo-600" data-filter="all">All</button>
+            <button class="filter-btn px-6 py-2 rounded-full border-2 border-indigo-600 text-indigo-600" data-filter="ml">ML</button>
+            <button class="filter-btn px-6 py-2 rounded-full border-2 border-indigo-600 text-indigo-600" data-filter="cv">Computer Vision</button>
+            <button class="filter-btn px-6 py-2 rounded-full border-2 border-indigo-600 text-indigo-600" data-filter="ai">AI</button>
         </div>
     </div>
 </section>
 
-<!-- Projects -->
+<!-- PROJECTS GRID -->
 <section class="py-20">
-    <div class="container mx-auto px-6">
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+<div class="container mx-auto px-6">
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
 
-            <!-- Fake News -->
-            <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg" data-category="ml ai">
-                <img src="fake news detector.png" class="w-full h-52 object-cover">
-                <div class="p-6">
-                    <span class="bg-indigo-600 text-white text-xs px-3 py-1 rounded-full">Machine Learning</span>
-                    <h3 class="text-xl font-bold mt-3 mb-2">Fake News Detector</h3>
-                    <p class="text-gray-600 mb-4">
-                        NLP-based ML system to classify news articles as real or fake.
-                    </p>
-                    <div class="flex justify-between items-center">
-                        <a href="https://fakenews-detector-sukalpa.streamlit.app/" class="text-indigo-600 font-semibold">
-                            Live Demo
-                        </a>
-                        <a href="https://github.com/protech-sukalpa-7/Fake-News-Detection">
-                            <i class="fab fa-github text-xl"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Invisible Cloak -->
-            <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg" data-category="cv ai">
-                <img src="harry potter invisible cloak.png" class="w-full h-52 object-cover">
-                <div class="p-6">
-                    <span class="bg-red-600 text-white text-xs px-3 py-1 rounded-full">Computer Vision</span>
-                    <h3 class="text-xl font-bold mt-3 mb-2">Invisible Cloak</h3>
-                    <p class="text-gray-600 mb-4">
-                        OpenCV-based real-time invisibility effect using color segmentation.
-                    </p>
-                    <div class="flex justify-between items-center">
-                        <a href="https://harrypotter-invisible-cloak.streamlit.app/" class="text-indigo-600 font-semibold">
-                            Live Demo
-                        </a>
-                        <a href="https://github.com/protech-sukalpa-7/invisible-cloak">
-                            <i class="fab fa-github text-xl"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Attendance -->
-            <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg" data-category="cv ai">
-                <img src="Smart Attendence system.jpeg" class="w-full h-52 object-cover">
-                <div class="p-6">
-                    <span class="bg-green-600 text-white text-xs px-3 py-1 rounded-full">Face Recognition</span>
-                    <h3 class="text-xl font-bold mt-3 mb-2">Smart Attendance System</h3>
-                    <p class="text-gray-600 mb-4">
-                        Face recognition-based attendance system using OpenCV & Streamlit.
-                    </p>
-                    <div class="flex justify-between items-center">
-                        <a href="https://sm-face-attendance-system.streamlit.app/" class="text-indigo-600 font-semibold">
-                            Live Demo
-                        </a>
-                        <a href="https://github.com/protech-sukalpa-7/smart-attendance-system">
-                            <i class="fab fa-github text-xl"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
+<!-- Fake News -->
+<div class="project-card bg-white rounded-xl shadow-lg" data-category="ml ai">
+    <img src="fake news detector.png" class="w-full h-52 object-cover">
+    <div class="p-6">
+        <span class="bg-indigo-600 text-white text-xs px-3 py-1 rounded-full">ML</span>
+        <h3 class="text-xl font-bold mt-3">Fake News Detector</h3>
+        <p class="text-gray-600 mt-2">NLP-based ML system to classify fake vs real news.</p>
+        <div class="flex justify-between mt-4">
+            <a href="https://fakenews-detector-sukalpa.streamlit.app/" 
+            class="text-indigo-600 link-3d">Live Demo</a>
+            <a href="https://github.com/protech-sukalpa-7/Fake-News-Detection"><i class="fab fa-github text-xl"></i></a>
         </div>
     </div>
+</div>
+
+<!-- Invisible Cloak -->
+<div class="project-card bg-white rounded-xl shadow-lg" data-category="cv ai">
+    <img src="harry potter invisible cloak.png" class="w-full h-52 object-cover">
+    <div class="p-6">
+        <span class="bg-red-600 text-white text-xs px-3 py-1 rounded-full">CV</span>
+        <h3 class="text-xl font-bold mt-3">Invisible Cloak</h3>
+        <p class="text-gray-600 mt-2">Real-time invisibility effect using OpenCV.</p>
+        <div class="flex justify-between mt-4">
+            <a href="https://harrypotter-invisible-cloak.streamlit.app/" 
+            class="text-indigo-600 link-3d">Live Demo</a>
+            <a href="https://github.com/protech-sukalpa-7/invisible-cloak"><i class="fab fa-github text-xl"></i></a>
+        </div>
+    </div>
+</div>
+
+<!-- Attendance -->
+<div class="project-card bg-white rounded-xl shadow-lg" data-category="cv ai">
+    <img src="Smart Attendence system.jpeg" class="w-full h-52 object-cover">
+    <div class="p-6">
+        <span class="bg-green-600 text-white text-xs px-3 py-1 rounded-full">CV</span>
+        <h3 class="text-xl font-bold mt-3">Smart Attendance System</h3>
+        <p class="text-gray-600 mt-2">Face recognition based attendance system.</p>
+        <div class="flex justify-between mt-4">
+            <a href="https://sm-face-attendance-system.streamlit.app/" 
+            class="text-indigo-600 link-3d">Live Demo</a>
+            <a href="https://github.com/protech-sukalpa-7/smart-attendance-system"><i class="fab fa-github text-xl"></i></a>
+        </div>
+    </div>
+</div>
+
+<!-- UPCOMING PROJECT -->
+<div class="project-card bg-white rounded-xl shadow-lg border-2 border-purple-100" data-category="ai">
+    <div class="h-52 flex items-center justify-center bg-gradient-to-br from-purple-100 to-pink-100">
+        <i class="fas fa-hourglass-half text-6xl text-purple-500"></i>
+    </div>
+    <div class="p-6 text-center">
+        <span class="text-purple-600 text-xs font-semibold">COMING SOON</span>
+        <h3 class="text-xl font-bold mt-3">Advanced AI Project</h3>
+        <p class="text-gray-600 mt-2">Working on a next-level AI application.</p>
+        <button class="mt-4 w-full bg-gray-200 text-gray-500 py-2 rounded-lg cursor-not-allowed">
+            Not Available Yet
+        </button>
+    </div>
+</div>
+
+</div>
+</div>
 </section>
 
-<!-- Footer -->
-<footer class="bg-gray-800 text-white py-12">
-    <div class="text-center">
-        <p class="text-gray-400">© 2024 Sukalpa Manna. All rights reserved.</p>
-    </div>
-</footer>
+<!-- CTA Section -->
+    <section class="py-20 gradient-bg text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Interested in Collaboration?</h2>
+            <p class="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
+                Let's work together on exciting AI and development projects
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                        <a href="index.html#projects"
+                        class="btn-3d bg-white text-indigo-600 px-8 py-3 
+                        rounded-full font-semibold">
+                        View Work
+                    </a>
+                        <a href="index.html#contact"class="btn-3d border-2 border-white text-white
+                            px-8 py-3 rounded-full font-semibold
+                        hover:bg-white hover:text-indigo-600">Get In Touch
+                        </a>
+
+                    </div> 
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <div class="text-2xl font-bold mb-4">Sukalpa Manna</div>
+                <p class="text-gray-400 mb-8 max-w-2xl mx-auto">
+                    Full Stack Developer & AI Engineer
+                </p>
+                
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="https://www.linkedin.com/in/sukalpa-manna-095168322/" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="https://github.com/protech-sukalpa-7" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com/sukalpa_manna.7/" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                </div>
+                
+                <div class="border-t border-gray-700 pt-8">
+                    <p class="text-gray-400">
+                        © 2024 Sukalpa Manna. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 <script>
-    const buttons = document.querySelectorAll('.filter-btn');
-    const cards = document.querySelectorAll('.project-card');
+const buttons = document.querySelectorAll('.filter-btn');
+const cards = document.querySelectorAll('.project-card');
 
-    buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            buttons.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
 
-            const filter = btn.dataset.filter;
-            cards.forEach(card => {
-                if (filter === 'all' || card.dataset.category.includes(filter)) {
-                    card.style.display = 'block';
-                    card.classList.add('animate-fade-in-up');
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+        const filter = btn.dataset.filter;
+        cards.forEach(card => {
+            card.style.display =
+                filter === 'all' || card.dataset.category.includes(filter)
+                ? 'block'
+                : 'none';
         });
     });
+});
 </script>
 
 </body>
