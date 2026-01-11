@@ -47,6 +47,142 @@
         .cert-badge:hover {
             transform: scale(1.05);
         }
+        /* 3D Button Effect */
+.btn-3d {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 8px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* Hover = lift */
+.btn-3d:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* Active (click) = press */
+.btn-3d:active {
+    transform: translateY(4px);
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25);
+}
+/* 3D Submit Button */
+.btn-3d-submit {
+    position: relative;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+    box-shadow:
+        0 6px 0 #4338ca,
+        0 12px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Hover = slight lift */
+.btn-3d-submit:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 8px 0 #4338ca,
+        0 16px 26px rgba(0, 0, 0, 0.3);
+}
+
+/* Active = press down */
+.btn-3d-submit:active {
+    transform: translateY(5px);
+    box-shadow:
+        0 2px 0 #4338ca,
+        0 6px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Keyboard accessibility */
+.btn-3d-submit:focus-visible {
+    outline: none;
+    box-shadow:
+        0 6px 0 #4338ca,
+        0 12px 20px rgba(0, 0, 0, 0.25),
+        0 0 0 4px rgba(99, 102, 241, 0.4);
+}
+/* 3D Link Button */
+.link-3d {
+    position: relative;
+    padding: 0.5rem 0.75rem;
+    border-radius: 9999px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+/* Hover = lift */
+.link-3d:hover {
+    transform: translateY(-2px);
+    background-color: rgba(99, 102, 241, 0.08);
+    box-shadow:
+        0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Press = sink */
+.link-3d:active {
+    transform: translateY(1px);
+    box-shadow:
+        0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Arrow motion */
+.link-3d:hover i {
+    transform: translateX(6px);
+}
+
+/* Keyboard focus */
+.link-3d:focus-visible {
+    outline: none;
+    box-shadow:
+        0 0 0 3px rgba(99, 102, 241, 0.4),
+        0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.portfolio-logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #4f46e5;
+    opacity: 0;
+    transform: scale(0.92);
+    animation: logo-scale-in 0.6s ease-out forwards;
+}
+
+@keyframes logo-scale-in {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+        .social-3d {
+    width: 48px;
+    height: 48px;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* 3D base */
+    box-shadow:
+        0 6px 0 #1f2933,
+        0 12px 20px rgba(0, 0, 0, 0.35);
+
+    transform: translateY(0);
+    transition: all 0.25s ease;
+}
+
+/* Hover = lift */
+.social-3d:hover {
+    transform: translateY(-6px);
+    box-shadow:
+        0 10px 0 #1f2933,
+        0 22px 30px rgba(0, 0, 0, 0.45);
+}
+
+/* Click = press */
+.social-3d:active {
+    transform: translateY(4px);
+    box-shadow:
+        0 3px 0 #1f2933,
+        0 8px 12px rgba(0, 0, 0, 0.35);
+}
+
+
     </style>
 </head>
 <body class="font-sans bg-gray-50 text-gray-800">
@@ -54,7 +190,8 @@
     <nav class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
         <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-                <div class="text-2xl font-bold text-indigo-600">Portfolio</div>
+                <div class="portfolio-logo">Portfolio</div>
+
                 
                 <div class="hidden md:flex space-x-8">
                     <a href="#home" class="hover:text-indigo-600 transition-colors">Home</a>
@@ -78,16 +215,22 @@
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="animate-fade-in-up">
                     <h1 class="text-4xl md:text-6xl font-bold mb-6">Hi, I'm <span class="text-yellow-300">Sukalpa Manna</span></h1>
+
+
                     <h2 class="text-xl md:text-2xl mb-6 opacity-90">AI & ML Devloper</h2>
                     <p class="text-lg mb-8 opacity-80">I create beautiful, functional, and user-centered digital experiences that drive results and engage audiences.</p>
                     <div class="flex flex-wrap gap-4">
-                        <a href="#projects" class="bg-white text-indigo-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">
-                            View Work
+                        <a href="#projects"
+                        class="btn-3d bg-white text-indigo-600 px-8 py-3 
+                        rounded-full font-semibold">
+                        View Work
+                    </a>
+                        <a href="#contact"class="btn-3d border-2 border-white text-white
+                            px-8 py-3 rounded-full font-semibold
+                        hover:bg-white hover:text-indigo-600">Get In Touch
                         </a>
-                        <a href="#contact" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-indigo-600 transition-colors">
-                            Get In Touch
-                        </a>
-                    </div>
+
+                    </div> 
                 </div>
                 
                 <div class="animate-fade-in-up" style="animation-delay: 0.2s;">
@@ -155,15 +298,12 @@
                     
                     <a 
   href="https://drive.google.com/uc?export=download&id=1yV__GAPo9wEr349rgViBicQ18ocimTL2"
-  class="group relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-semibold text-indigo-600 border-2 border-indigo-600 rounded-full transition-all duration-300 hover:text-white"
->
+  class="group inline-block relative rounded-full bg-indigo-600 text-white px-8 py-3 
+  font-semibold btn-3d">
     <!-- Background animation -->
-    <span class="absolute inset-0 w-0 bg-indigo-600 transition-all duration-300 ease-out group-hover:w-full"></span>
-
-    <!-- Content -->
-    <span class="relative flex items-center gap-2">
+    <span class="relative flex items-center gap-2 z-10">
         Download Resume
-        <i class="fas fa-download transform transition-transform duration-300 group-hover:translate-y-1"></i>
+        <i class="fas fa-download transition-transform duration-300 group-hover:translate-y-1"></i>
     </span>
 </a>
 
@@ -347,8 +487,10 @@
                     <p class="text-sm text-red-600 font-semibold mb-3">HP Foundation Services</p>
                     <p class="text-gray-600 text-sm mb-4">Beginner certification in AI development and deployment</p>
                     <div class="flex justify-between items-center text-sm pt-4 border-t border-gray-100">
-                        <span class="text-gray-500"><i class="far fa-calendar mr-1"></i>Nov 2025</span>
-                        <a href="HP certificate.pdf" class="text-red-600 hover:text-red-700 font-semibold">
+                        <span class="text-gray-500"><i class="far fa-calendar mr-1"></i>
+                            Sep 2025</span>
+                        <a href="HP certificate.pdf" class="text-red-600 bg-white-600 
+                        link-3d">
                             View <i class="fas fa-external-link-alt ml-1"></i>
                         </a>
                     </div>
@@ -375,7 +517,8 @@
                     <p class="text-gray-600 text-sm mb-4">Machine learning and AI fundamentals</p>
                     <div class="flex justify-between items-center text-sm pt-4 border-t border-gray-100">
                         <span class="text-gray-500"><i class="far fa-calendar mr-1"></i>Oct 2025</span>
-                        <a href="OCI ai foundation eCertificate.pdf" class="text-green-600 hover:text-green-700 font-semibold">
+                        <a href="OCI ai foundation eCertificate.pdf" class="text-green-600 
+                        bg-white-600  link-3d">
                             View <i class="fas fa-external-link-alt ml-1"></i>
                         </a>
                     </div>
@@ -402,7 +545,8 @@
                     <p class="text-gray-600 text-sm mb-4">Professional certification in Gen AI development and deployment</p>
                     <div class="flex justify-between items-center text-sm pt-4 border-t border-gray-100">
                         <span class="text-gray-500"><i class="far fa-calendar mr-1"></i>Nov 2025</span>
-                        <a href="OCI Gen AI eCertificate.pdf" class="text-indigo-600 hover:text-indigo-700 font-semibold">
+                        <a href="OCI Gen AI eCertificate.pdf" class="text-indigo-600 
+                        bg-white-600 hover:text-white-700 link-3d">
                             View <i class="fas fa-external-link-alt ml-1"></i>
                         </a>
                     </div>
@@ -434,10 +578,12 @@
 
         <!-- View All Link -->
         <div class="text-center mt-12">
-            <a href="certificates.html" class="inline-flex items-center text-indigo-600 font-semibold hover:text-indigo-700">
-                View All Certifications
-                <i class="fas fa-arrow-right ml-2"></i>
-            </a>
+            <a href="certificates.html"
+            class="inline-flex items-center font-semibold text-indigo-600 link-3d">
+            View All Certifications
+            <i class="fas fa-arrow-right ml-2 transition-transform duration-200"></i>
+        </a>
+
         </div>
     </div>
 </section>
@@ -472,7 +618,8 @@
                         <p class="text-gray-600 mb-4">A Fake News Detector built using machine learning to classify news articles as real or fake, enhancing online information reliability.
 Leverages natural language processing (NLP) and data-driven algorithms for accurate, automated detection.</p>
                         <div class="flex justify-between items-center">
-                            <a href="https://fakenews-detector-sukalpa.streamlit.app/" class="text-indigo-600 hover:text-indigo-700 font-semibold">View Project</a>
+                            <a href="https://fakenews-detector-sukalpa.streamlit.app/" 
+                            class="text-indigo-600 hover:text-indigo-700 link-3d">View Project</a>
                             <a href="https://github.com/protech-sukalpa-7/Fake-News-Detection" class="text-gray-600 hover:text-gray-800">
                                 <i class="fab fa-github"></i>
                             </a>
@@ -481,7 +628,8 @@ Leverages natural language processing (NLP) and data-driven algorithms for accur
                 </div>
 
                 <!-- Project 2 -->
-                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover">
+                <div class="bg-white rounded-lg overflow-hidden 
+                shadow-lg card-hover">
                     <div class="relative overflow-hidden">
                         <img 
                             src="harry potter invisible cloak.png" 
@@ -497,7 +645,9 @@ Leverages natural language processing (NLP) and data-driven algorithms for accur
                         <h3 class="font-semibold text-xl mb-2">Harry Potter invisible cloak</h3>
                         <p class="text-gray-600 mb-4">🪄 Harry Potter Invisibility Cloak is a fun computer vision project built using OpenCV and Streamlit. It detects a specific colored cloth (like red) in real-time video and replaces it with the background, creating a magical invisibility effect — inspired by the wizarding world of Harry Potter!</p>
                         <div class="flex justify-between items-center">
-                            <a href="https://harrypotter-invisible-cloak.streamlit.app/" class="text-indigo-600 hover:text-indigo-700 font-semibold">View Project</a>
+                            <a href="https://harrypotter-invisible-cloak.streamlit.app/" 
+                            class="text-indigo-600 hover:text-indigo-700 link-3d">
+                            View Project</a>
                             <a href="https://github.com/protech-sukalpa-7/invisible-cloak" class="text-gray-600 hover:text-gray-800">
                                 <i class="fab fa-github"></i>
                             </a>
@@ -524,7 +674,8 @@ Leverages natural language processing (NLP) and data-driven algorithms for accur
                             OpenCV, and Streamlit that automatically recognizes faces in real time 
                             and records attendance through a simple, interactive web interface.</p>
                         <div class="flex justify-between items-center">
-                            <a href="https://sm-face-attendance-system.streamlit.app/" class="text-indigo-600 hover:text-indigo-700 font-semibold">View Project</a>
+                            <a href="https://sm-face-attendance-system.streamlit.app/" 
+                            class="text-indigo-600 hover:text-indigo-700 link-3d">View Project</a>
                             <a href="https://github.com/protech-sukalpa-7/smart-attendance-system/blob/main/app.py" class="text-gray-600 hover:text-gray-800">
                                 <i class="fab fa-github"></i>
                             </a>
@@ -534,10 +685,11 @@ Leverages natural language processing (NLP) and data-driven algorithms for accur
             </div>
 
             <div class="text-center mt-12">
-                <a href="projects.html" class="inline-flex items-center text-indigo-600 font-semibold hover:text-indigo-700">
-                    View All Projects
-                    <i class="fas fa-arrow-right ml-2"></i>
-                </a>
+                <a href="projects.html"
+            class="inline-flex items-center font-semibold text-indigo-600 link-3d">
+            View All Projects
+            <i class="fas fa-arrow-right ml-2 transition-transform duration-200"></i>
+        </a>
             </div>
         </div>
     </section>
@@ -642,10 +794,13 @@ Leverages natural language processing (NLP) and data-driven algorithms for accur
                 </div>
                 <!-- Prevent Spam -->
                 <input type="hidden" name="_captcha" value="false">
-                <button type="submit"
-                class="w-full bg-indigo-600 text-white py-3 px-6 rounded-md 
-                font-semibold hover:bg-indigo-700"
-                >Send Message
+                <button
+    type="submit"
+    class="w-full bg-indigo-600 text-white py-3 px-6 rounded-md font-semibold 
+    btn-3d-submit">
+    Send Message
+</button>
+
             </form>
                 </div>
             </div>
@@ -662,16 +817,27 @@ Leverages natural language processing (NLP) and data-driven algorithms for accur
                 </p>
                 
                 <div class="flex justify-center space-x-6 mb-8">
-                    <a href="https://www.linkedin.com/in/sukalpa-manna-095168322/" class="text-gray-400 hover:text-white transition-colors">
+                    
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/sukalpa-manna-095168322/"
+                    class="social-3d bg-gray-700 text-white">
                         <i class="fab fa-linkedin-in text-xl"></i>
                     </a>
-                    <a href="https://github.com/protech-sukalpa-7" class="text-gray-400 hover:text-white transition-colors">
+
+                    <!-- GitHub -->
+                    <a href="https://github.com/protech-sukalpa-7"
+                    class="social-3d bg-gray-700 text-white">
                         <i class="fab fa-github text-xl"></i>
                     </a>
-                    <a href="https://www.instagram.com/sukalpa_manna.7/" class="text-gray-400 hover:text-white transition-colors">
+
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/sukalpa_manna.7/"
+                    class="social-3d bg-gray-700 text-white">
                         <i class="fab fa-instagram text-xl"></i>
                     </a>
+
                 </div>
+
                 
                 <div class="border-t border-gray-700 pt-8">
                     <p class="text-gray-400">
@@ -742,8 +908,10 @@ Leverages natural language processing (NLP) and data-driven algorithms for accur
             alert('Mobile menu functionality would be implemented here');
         });
     </script>
+
 </body>
 
 </html>
+
 
 
