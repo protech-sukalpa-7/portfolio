@@ -149,7 +149,7 @@
         transform: scale(1);
     }
 }
-        .social-3d {
+    .social-3d {
     width: 48px;
     height: 48px;
     border-radius: 9999px;
@@ -182,8 +182,170 @@
         0 8px 12px rgba(0, 0, 0, 0.35);
 }
 
+/* =====================================
+   SOCIAL ICONS – FLOATING 3D VARIANT
+   Class: social-3d-float
+   ===================================== */
 
-    </style>
+.social-3d-float {
+    position: relative;
+
+    /* 3D depth base */
+    box-shadow:
+        0 8px 0 #1f2937,
+        0 14px 24px rgba(0, 0, 0, 0.35);
+
+    transform: translateY(0) scale(1);
+    transition:
+        transform 0.28s ease,
+        box-shadow 0.28s ease;
+}
+
+/* Hover = lift + subtle zoom */
+.social-3d-float:hover {
+    transform: translateY(-7px) scale(1.08);
+    box-shadow:
+        0 12px 0 #1f2937,
+        0 26px 36px rgba(0, 0, 0, 0.45);
+}
+
+/* Active = pressed */
+.social-3d-float:active {
+    transform: translateY(4px) scale(0.96);
+    box-shadow:
+        0 4px 0 #1f2937,
+        0 8px 14px rgba(0, 0, 0, 0.35);
+}
+
+/* Icon emphasis */
+.social-3d-float i {
+    transition: transform 0.25s ease;
+}
+
+.social-3d-float:hover i {
+    transform: scale(1.15);
+}
+/* =====================================
+   PROJECTS – ADVANCED 3D INTERACTION
+   ===================================== */
+
+.perspective-3d {
+    perspective: 1400px;
+}
+
+/* Base project card */
+.project-3d {
+    transform-style: preserve-3d;
+    transition:
+        transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.6s ease;
+}
+
+/* Hover = premium 3D lift */
+.project-3d:hover {
+    transform:
+        translateY(-14px)
+        rotateX(8deg)
+        rotateY(-8deg)
+        scale(1.06);
+
+    box-shadow:
+        0 40px 80px rgba(0, 0, 0, 0.35),
+        0 18px 36px rgba(0, 0, 0, 0.25);
+}
+
+/* Click = physical press */
+.project-3d:active {
+    transform:
+        translateY(-4px)
+        rotateX(2deg)
+        rotateY(-2deg)
+        scale(1.02);
+
+    box-shadow:
+        0 18px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Image depth */
+.project-3d img {
+    transform: translateZ(40px);
+    transition: transform 0.6s ease;
+}
+
+.project-3d:hover img {
+    transform: translateZ(70px) scale(1.04);
+}
+
+/* Content depth */
+.project-3d .p-6 {
+    transform: translateZ(25px);
+}
+
+/* Badge depth */
+.project-3d span {
+    transform: translateZ(55px);
+}
+/* ===============================
+   CERTIFICATIONS – PREMIUM 3D
+   =============================== */
+
+.cert-badge {
+    transform-style: preserve-3d;
+    transition:
+        transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.55s ease;
+}
+
+/* Hover: elegant 3D zoom */
+.cert-badge:hover {
+    transform:
+        translateY(-10px)
+        scale(1.07)
+        rotateX(6deg)
+        rotateY(-6deg);
+
+    box-shadow:
+        0 28px 60px rgba(0, 0, 0, 0.28),
+        0 12px 24px rgba(0, 0, 0, 0.22);
+}
+
+/* Click: subtle press */
+.cert-badge:active {
+    transform:
+        translateY(-3px)
+        scale(1.03)
+        rotateX(2deg)
+        rotateY(-2deg);
+
+    box-shadow:
+        0 12px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Image depth */
+.cert-badge img {
+    transform: translateZ(35px);
+    transition: transform 0.55s ease;
+}
+
+.cert-badge:hover img {
+    transform: translateZ(60px) scale(1.03);
+}
+
+/* Icon depth */
+.cert-badge i {
+    transform: translateZ(55px);
+}
+
+/* Content depth */
+.cert-badge .p-6 {
+    transform: translateZ(25px);
+}
+
+
+
+
+</style>
+
 </head>
 <body class="font-sans bg-gray-50 text-gray-800">
     <!-- Navigation -->
@@ -455,7 +617,6 @@
         </div>
     </section>
 
-<!-- Certifications Section -->
 <section id="certifications" class="py-20 bg-white">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16">
@@ -599,9 +760,9 @@
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8d">
                 <!-- Project 1 -->
-                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover">
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg project-3d">
                     <div class="relative overflow-hidden">
                         <img 
                             src="fake news detector.png" 
@@ -629,7 +790,7 @@ Leverages natural language processing (NLP) and data-driven algorithms for accur
 
                 <!-- Project 2 -->
                 <div class="bg-white rounded-lg overflow-hidden 
-                shadow-lg card-hover">
+                shadow-lg project-3d">
                     <div class="relative overflow-hidden">
                         <img 
                             src="harry potter invisible cloak.png" 
@@ -656,7 +817,7 @@ Leverages natural language processing (NLP) and data-driven algorithms for accur
                 </div>
 
                 <!-- Project 3 -->
-                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover">
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg project-3d">
                     <div class="relative overflow-hidden">
                         <img 
                             src="Smart Attendence system.jpeg" 
@@ -747,16 +908,20 @@ Leverages natural language processing (NLP) and data-driven algorithms for accur
                     </div>
                     
                     <div class="flex space-x-4 mt-8">
-                        <a href="https://www.linkedin.com/in/sukalpa-manna-095168322/" class="w-10 h-10 bg-indigo-600 text-white rounded-full flex items-center justify-center hover:bg-indigo-700">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://github.com/protech-sukalpa-7" class="w-10 h-10 bg-indigo-600 text-white rounded-full flex items-center justify-center hover:bg-indigo-700">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://www.facebook.com/profile.php?id=100074382331409" class="w-10 h-10 bg-indigo-600 text-white rounded-full flex items-center justify-center hover:bg-indigo-700">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                    </div>
+                        <a href="https://www.linkedin.com/in/sukalpa-manna-095168322/"
+                        class="w-10 h-10 bg-indigo-600 text-white rounded-full flex items-center justify-center hover:bg-indigo-700 social-3d-float">
+                        <i class="fab fa-linkedin-in"></i></a>
+                        
+                        <a href="https://github.com/protech-sukalpa-7"
+                        class="w-10 h-10 bg-indigo-600 text-white rounded-full flex items-center justify-center hover:bg-indigo-700 social-3d-float">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=100074382331409"
+                    class="w-10 h-10 bg-indigo-600 text-white rounded-full flex items-center justify-center hover:bg-indigo-700 social-3d-float">
+                    <i class="fab fa-facebook"></i>
+                    </a>
+                </div>
+
                 </div>
                 
                 <div class="bg-gray-50 p-8 rounded-lg shadow-sm">
