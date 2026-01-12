@@ -93,7 +93,122 @@
     transform: translateY(4px);
     box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25);
 }
-    </style>
+/* ===============================
+   UNIVERSAL 3D CERTIFICATE BUTTON
+   =============================== */
+
+.btn-3d {
+    position: relative;
+    transform: translateY(0);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* ===== RED ===== */
+.btn-3d-red {
+    box-shadow:
+        0 6px 0 #991b1b,
+        0 14px 24px rgba(0, 0, 0, 0.35);
+}
+
+.btn-3d-red:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 10px 0 #991b1b,
+        0 24px 36px rgba(0, 0, 0, 0.45);
+}
+
+.btn-3d-red:active {
+    transform: translateY(4px);
+    box-shadow:
+        0 3px 0 #991b1b,
+        0 8px 14px rgba(0, 0, 0, 0.35);
+}
+
+/* ===== GREEN ===== */
+.btn-3d-green {
+    box-shadow:
+        0 6px 0 #166534,
+        0 14px 24px rgba(0, 0, 0, 0.35);
+}
+
+.btn-3d-green:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 10px 0 #166534,
+        0 24px 36px rgba(0, 0, 0, 0.45);
+}
+
+.btn-3d-green:active {
+    transform: translateY(4px);
+    box-shadow:
+        0 3px 0 #166534,
+        0 8px 14px rgba(0, 0, 0, 0.35);
+}
+
+/* ===== INDIGO ===== */
+.btn-3d-indigo {
+    box-shadow:
+        0 6px 0 #3730a3,
+        0 14px 24px rgba(0, 0, 0, 0.35);
+}
+
+.btn-3d-indigo:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 10px 0 #3730a3,
+        0 24px 36px rgba(0, 0, 0, 0.45);
+}
+
+.btn-3d-indigo:active {
+    transform: translateY(4px);
+    box-shadow:
+        0 3px 0 #3730a3,
+        0 8px 14px rgba(0, 0, 0, 0.35);
+}
+    .social-3d {
+    width: 48px;
+    height: 48px;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* 3D base */
+    box-shadow:
+        0 6px 0 #1f2933,
+        0 12px 20px rgba(0, 0, 0, 0.35);
+
+    transform: translateY(0);
+    transition: all 0.25s ease;
+}
+
+/* Hover = lift */
+.social-3d:hover {
+    transform: translateY(-6px);
+    box-shadow:
+        0 10px 0 #1f2933,
+        0 22px 30px rgba(0, 0, 0, 0.45);
+}
+
+/* Click = press */
+.social-3d:active {
+    transform: translateY(4px);
+    box-shadow:
+        0 3px 0 #1f2933,
+        0 8px 12px rgba(0, 0, 0, 0.35);
+}
+.certificates-card {
+            transition: all 0.3s ease;
+        }
+
+        .certificates-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        }
+
+</style>
 </head>
 <body class="font-sans bg-gray-50 text-gray-800">
     <!-- Navigation -->
@@ -183,7 +298,7 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="certificationsGrid">
                 
                 <!-- Certification 1: HP AI -->
-                <div class="cert-card bg-white rounded-xl overflow-hidden shadow-lg border-2 border-red-100" data-category="ai 2025">
+                <div class="certificates-card bg-white rounded-xl overflow-hidden shadow-lg border-2 border-red-100" data-category="ai 2025">
                     <div class="relative overflow-hidden h-58 bg-gradient-to-br from-red-50 to-red-100">
                         <img 
                             src="hp-foundation.jpg" 
@@ -227,7 +342,9 @@
                         </div>
                         
                         <div class="flex gap-2">
-                            <a href="HP certificate.pdf" target="_blank" class="flex-1 bg-red-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-700 transition-colors text-center text-sm">
+                            <a href="HP certificate.pdf" target="_blank" class="flex-1 
+                            bg-red-600 text-white px-4 py-2 rounded-lg font-semibold 
+                            hover:bg-red-700 transition-colors text-center text-sm btn-3d-red">
                                 <i class="fas fa-eye mr-1"></i>View Certificate
                             </a>
                             <button onclick="openModal('hp-foundation.jpg')" class="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors">
@@ -238,7 +355,7 @@
                 </div>
 
                 <!-- Certification 2: OCI AI Foundation -->
-                <div class="cert-card bg-white rounded-xl overflow-hidden shadow-lg border-2 border-green-100" data-category="ai cloud 2025">
+                <div class="certificates-card bg-white rounded-xl overflow-hidden shadow-lg border-2 border-green-100" data-category="ai cloud 2025">
                     <div class="relative overflow-hidden h-58 bg-gradient-to-br from-green-50 to-emerald-100">
                         <img 
                             src="OCI AI foundation.jpeg" 
@@ -282,7 +399,10 @@
                         </div>
                         
                         <div class="flex gap-2">
-                            <a href="OCI ai foundation eCertificate.pdf" target="_blank" class="flex-1 bg-green-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-700 transition-colors text-center text-sm">
+                            <a href="OCI ai foundation eCertificate.pdf" target="_blank" 
+                            class="flex-1 bg-green-600 text-white px-4 py-2 rounded-lg 
+                            font-semibold hover:bg-green-700 transition-colors text-center 
+                            text-sm btn-3d-green">
                                 <i class="fas fa-eye mr-1"></i>View Certificate
                             </a>
                             <button onclick="openModal('OCI AI foundation.jpeg')" class="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors">
@@ -293,7 +413,7 @@
                 </div>
 
                 <!-- Certification 3: OCI Gen AI -->
-                <div class="cert-card bg-white rounded-xl overflow-hidden shadow-lg border-2 border-indigo-100" data-category="ai cloud 2025">
+                <div class="certificates-card bg-white rounded-xl overflow-hidden shadow-lg border-2 border-indigo-100" data-category="ai cloud 2025">
                     <div class="relative overflow-hidden h-58 bg-gradient-to-br from-indigo-50 to-purple-100">
                         <img 
                             src="gen ai badge.jpg" 
@@ -337,7 +457,10 @@
                         </div>
                         
                         <div class="flex gap-2">
-                            <a href="OCI Gen AI eCertificate.pdf" target="_blank" class="flex-1 bg-indigo-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-indigo-700 transition-colors text-center text-sm">
+                            <a href="OCI Gen AI eCertificate.pdf" target="_blank" 
+                            class="flex-1 bg-indigo-600 text-white px-4 py-2 
+                            rounded-lg font-semibold hover:bg-indigo-700 transition-colors 
+                            text-center text-sm btn-3d-indigo">
                                 <i class="fas fa-eye mr-1"></i>View Certificate
                             </a>
                             <button onclick="openModal('gen ai badge.jpg')" class="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors">
@@ -348,7 +471,7 @@
                 </div>
 
                 <!-- Certification 4: Placeholder for fourth cert -->
-                <div class="cert-card bg-white rounded-xl overflow-hidden shadow-lg border-2 border-purple-100" data-category="ai 2025">
+                <div class="certificates-card bg-white rounded-xl overflow-hidden shadow-lg border-2 border-purple-100" data-category="ai 2025">
                     <div class="relative overflow-hidden h-64 bg-gradient-to-br from-purple-50 to-pink-100">
                         <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-purple-100 to-purple-200">
                             <div class="text-center">
@@ -485,13 +608,13 @@
                 
                 <div class="flex justify-center space-x-6 mb-8">
                     <a href="https://www.linkedin.com/in/sukalpa-manna-095168322/" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-linkedin-in text-xl"></i>
+                        <i class="fab fa-linkedin-in text-xl social-3d"></i>
                     </a>
                     <a href="https://github.com/protech-sukalpa-7" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-github text-xl"></i>
+                        <i class="fab fa-github text-xl social-3d"></i>
                     </a>
                     <a href="https://www.instagram.com/sukalpa_manna.7/" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-instagram text-xl"></i>
+                        <i class="fab fa-instagram text-xl social-3d"></i>
                     </a>
                 </div>
                 
