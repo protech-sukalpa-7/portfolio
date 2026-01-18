@@ -285,68 +285,6 @@
 .project-3d span {
     transform: translateZ(55px);
 }
-/* ===============================
-   CERTIFICATIONS – PREMIUM 3D
-   =============================== */
-
-.cert-badge {
-    transform-style: preserve-3d;
-    transition:
-        transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 0.55s ease;
-}
-
-/* Hover: elegant 3D zoom */
-.cert-badge:hover {
-    transform:
-        translateY(-10px)
-        scale(1.07)
-        rotateX(6deg)
-        rotateY(-6deg);
-
-    box-shadow:
-        0 28px 60px rgba(0, 0, 0, 0.28),
-        0 12px 24px rgba(0, 0, 0, 0.22);
-}
-
-/* Click: subtle press */
-.cert-badge:active {
-    transform:
-        translateY(-3px)
-        scale(1.03)
-        rotateX(2deg)
-        rotateY(-2deg);
-
-    box-shadow:
-        0 12px 20px rgba(0, 0, 0, 0.25);
-}
-
-/* Image depth */
-.cert-badge img {
-    transform: translateZ(35px);
-    transition: transform 0.55s ease;
-}
-
-.cert-badge:hover img {
-    transform: translateZ(60px) scale(1.03);
-}
-
-/* Icon depth */
-.cert-badge i {
-    transform: translateZ(55px);
-}
-
-/* Content depth */
-.cert-badge .p-6 {
-    transform: translateZ(25px);
-}
-        /* 3D Menu Button */
-.menu-btn-3d {
-    box-shadow:
-        0 6px 0 #4338ca,
-        0 12px 20px rgba(0,0,0,0.35);
-    transition: all 0.25s ease;
-}
 
 .menu-btn-3d:hover {
     transform: translateY(-4px);
@@ -1161,6 +1099,7 @@ Leverages natural language processing (NLP) and data-driven algorithms for accur
 </body>
 
 </html>
+
 
 
 
