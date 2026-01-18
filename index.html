@@ -1119,34 +1119,47 @@ Leverages natural language processing (NLP) and data-driven algorithms for accur
 
         // Mobile menu toggle (can be expanded)
         
-        const menuBtn = document.getElementById('menuBtn');
-    const closeMenu = document.getElementById('closeMenu');
+         const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     const mobilePanel = document.getElementById('mobilePanel');
+    const menuIcon = menuBtn.querySelector('i');
+
+    let menuOpen = false;
 
     menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.remove('hidden');
-        setTimeout(() => {
-            mobilePanel.classList.remove('translate-x-full');
-        }, 10);
+        if (!menuOpen) {
+            // OPEN MENU
+            mobileMenu.classList.remove('hidden');
+            setTimeout(() => {
+                mobilePanel.classList.remove('translate-x-full');
+            }, 10);
+
+            menuIcon.classList.replace('fa-bars', 'fa-times');
+            menuOpen = true;
+        } else {
+            // CLOSE MENU
+            mobilePanel.classList.add('translate-x-full');
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+            }, 300);
+
+            menuIcon.classList.replace('fa-times', 'fa-bars');
+            menuOpen = false;
+        }
     });
 
-    closeMenu.addEventListener('click', closeMobileMenu);
+    // Close when clicking outside panel
     mobileMenu.addEventListener('click', (e) => {
-        if (e.target === mobileMenu) closeMobileMenu();
+        if (e.target === mobileMenu && menuOpen) {
+            menuBtn.click();
+        }
     });
-
-    function closeMobileMenu() {
-        mobilePanel.classList.add('translate-x-full');
-        setTimeout(() => {
-            mobileMenu.classList.add('hidden');
-        }, 300);
-    }
     </script>
 
 </body>
 
 </html>
+
 
 
 
