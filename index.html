@@ -299,8 +299,522 @@
         0 3px 0 #4338ca,
         0 8px 12px rgba(0,0,0,0.35);
 }
+/* Ultra Premium 3D Slider with Mobile Optimization */
+.cert-slider-container {
+    perspective: 2500px;
+    perspective-origin: 50% 50%;
+    overflow: visible;
+    position: relative;
+    min-height: 700px;
+    padding: 60px 0;
+}
 
+.cert-slider-wrapper {
+    overflow: visible;
+    position: relative;
+    transform-style: preserve-3d;
+}
 
+.cert-grid-slider {
+    display: flex;
+    gap: 3rem;
+    transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-style: preserve-3d;
+    padding: 3rem 0;
+    position: relative;
+}
+
+/* Enhanced Card Styling */
+.cert-badge {
+    min-width: 400px;
+    max-width: 400px;
+    flex-shrink: 0;
+    transform-style: preserve-3d;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    cursor: pointer;
+}
+
+/* Glow effect behind cards */
+.cert-badge::before {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    background: radial-gradient(circle at center, rgba(102, 126, 234, 0.3), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    border-radius: 24px;
+    z-index: -1;
+    filter: blur(30px);
+}
+
+.cert-badge.active::before {
+    opacity: 1;
+}
+
+/* Far left/right cards - heavily compressed */
+.cert-badge:not(.active):not(.next):not(.prev) {
+    transform: 
+        scale(0.6) 
+        rotateY(35deg) 
+        translateZ(-300px)
+        translateX(0);
+    opacity: 0.3;
+    filter: blur(4px) brightness(0.7);
+    pointer-events: none;
+}
+
+/* Previous card - left side */
+.cert-badge.prev {
+    transform: 
+        scale(0.75) 
+        rotateY(25deg) 
+        translateZ(-120px)
+        translateX(-80px);
+    opacity: 0.5;
+    filter: blur(1px) brightness(0.85);
+}
+
+/* Next card - right side */
+.cert-badge.next {
+    transform: 
+        scale(0.75) 
+        rotateY(-25deg) 
+        translateZ(-120px)
+        translateX(80px);
+    opacity: 0.5;
+    filter: blur(1px) brightness(0.85);
+}
+
+/* Active card - front and center with dramatic effect */
+.cert-badge.active {
+    transform: 
+        scale(1.15) 
+        rotateY(0deg) 
+        translateZ(100px)
+        translateY(-20px);
+    opacity: 1;
+    filter: blur(0) brightness(1.1);
+    z-index: 100;
+    box-shadow: 
+        0 50px 100px rgba(0, 0, 0, 0.4),
+        0 25px 50px rgba(0, 0, 0, 0.3),
+        0 0 100px rgba(102, 126, 234, 0.3);
+}
+
+/* Hover on active card - even more dramatic */
+.cert-badge.active:hover {
+    transform: 
+        scale(1.18) 
+        rotateY(0deg) 
+        translateZ(120px)
+        translateY(-30px)
+        rotateX(-3deg);
+    box-shadow: 
+        0 60px 120px rgba(0, 0, 0, 0.45),
+        0 30px 60px rgba(0, 0, 0, 0.35),
+        0 0 120px rgba(102, 126, 234, 0.5);
+}
+
+/* Hover on side cards */
+.cert-badge.prev:hover,
+.cert-badge.next:hover {
+    transform: 
+        scale(0.8) 
+        rotateY(20deg) 
+        translateZ(-80px);
+    opacity: 0.7;
+    filter: blur(0.5px) brightness(0.95);
+}
+
+/* Card inner content depth layers */
+.cert-badge img {
+    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-style: preserve-3d;
+}
+
+.cert-badge.active img {
+    transform: translateZ(40px) scale(1.02);
+}
+
+.cert-badge .absolute.top-4.right-4 {
+    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.cert-badge.active .absolute.top-4.right-4 {
+    transform: translateZ(80px) scale(1.1);
+}
+
+.cert-badge .p-6 {
+    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.cert-badge.active .p-6 {
+    transform: translateZ(50px);
+}
+
+/* Enhanced Navigation Buttons with Pulse Effect */
+.cert-nav-btn {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 
+        0 10px 0 #5a32a3, 
+        0 20px 40px rgba(0, 0, 0, 0.4);
+    z-index: 200;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Ripple effect on buttons */
+.cert-nav-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(0);
+    transition: transform 0.6s ease;
+}
+
+.cert-nav-btn:hover::before {
+    transform: scale(1);
+    opacity: 0;
+}
+
+.cert-nav-btn:hover {
+    transform: translateY(-6px) scale(1.15);
+    box-shadow: 
+        0 15px 0 #5a32a3, 
+        0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+.cert-nav-btn:active {
+    transform: translateY(4px) scale(1.08);
+    box-shadow: 
+        0 6px 0 #5a32a3, 
+        0 12px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Animated icon inside button */
+.cert-nav-btn i {
+    transition: transform 0.3s ease;
+}
+
+.cert-nav-btn:hover i {
+    transform: scale(1.2);
+}
+
+/* Enhanced Progress Dots with Animation */
+.cert-dots {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 3rem;
+    position: relative;
+}
+
+.cert-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #cbd5e0;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    position: relative;
+}
+
+.cert-dot::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    transition: all 0.4s ease;
+}
+
+.cert-dot.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transform: scale(1.5);
+    box-shadow: 
+        0 0 30px rgba(102, 126, 234, 0.8),
+        0 0 60px rgba(102, 126, 234, 0.4);
+}
+
+.cert-dot.active::before {
+    border-color: rgba(102, 126, 234, 0.5);
+    animation: pulse-ring 2s infinite;
+}
+
+@keyframes pulse-ring {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+.cert-dot:hover:not(.active) {
+    background: #a0aec0;
+    transform: scale(1.2);
+}
+
+/* Smooth slide track effect */
+.cert-grid-slider::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(102, 126, 234, 0.3) 20%, 
+        rgba(102, 126, 234, 0.6) 50%, 
+        rgba(102, 126, 234, 0.3) 80%, 
+        transparent 100%
+    );
+    transform: translateZ(-50px);
+}
+
+/* Reflection effect */
+.cert-slider-wrapper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center bottom, rgba(102, 126, 234, 0.1), transparent 50%);
+    pointer-events: none;
+}
+
+/* =============================================
+   MOBILE RESPONSIVE OPTIMIZATIONS
+   ============================================= */
+
+/* Tablets and below */
+@media (max-width: 1024px) {
+    .cert-badge {
+        min-width: 350px;
+        max-width: 350px;
+    }
+    
+    .cert-slider-container {
+        min-height: 650px;
+        padding: 40px 0;
+    }
+    
+    .cert-nav-btn {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .cert-badge.active {
+        transform: 
+            scale(1.1) 
+            rotateY(0deg) 
+            translateZ(80px)
+            translateY(-15px);
+    }
+    
+    .cert-badge.prev,
+    .cert-badge.next {
+        transform: 
+            scale(0.7) 
+            rotateY(20deg) 
+            translateZ(-100px)
+            translateX(-60px);
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+    .cert-slider-container {
+        perspective: 1800px;
+        min-height: 580px;
+        padding: 30px 0;
+    }
+    
+    .cert-badge {
+        min-width: 300px;
+        max-width: 300px;
+    }
+    
+    .cert-grid-slider {
+        gap: 2rem;
+        padding: 2rem 0;
+    }
+    
+    /* Simplified 3D for mobile - better performance */
+    .cert-badge.active {
+        transform: 
+            scale(1.05) 
+            rotateY(0deg) 
+            translateZ(60px)
+            translateY(-10px);
+        box-shadow: 
+            0 30px 60px rgba(0, 0, 0, 0.35),
+            0 15px 30px rgba(0, 0, 0, 0.25);
+    }
+    
+    .cert-badge.active:hover {
+        transform: 
+            scale(1.08) 
+            rotateY(0deg) 
+            translateZ(70px)
+            translateY(-15px);
+    }
+    
+    .cert-badge.prev,
+    .cert-badge.next {
+        transform: 
+            scale(0.65) 
+            rotateY(15deg) 
+            translateZ(-80px)
+            translateX(-50px);
+        opacity: 0.4;
+    }
+    
+    .cert-badge:not(.active):not(.next):not(.prev) {
+        transform: 
+            scale(0.5) 
+            rotateY(25deg) 
+            translateZ(-200px);
+        opacity: 0.2;
+        filter: blur(3px) brightness(0.7);
+    }
+    
+    /* Smaller navigation buttons */
+    .cert-nav-btn {
+        width: 50px;
+        height: 50px;
+        box-shadow: 
+            0 6px 0 #5a32a3, 
+            0 12px 25px rgba(0, 0, 0, 0.35);
+    }
+    
+    .cert-nav-btn:hover {
+        transform: translateY(-4px) scale(1.1);
+        box-shadow: 
+            0 10px 0 #5a32a3, 
+            0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+    
+    .cert-nav-btn i {
+        font-size: 1.25rem;
+    }
+    
+    /* Adjust dots for mobile */
+    .cert-dots {
+        gap: 12px;
+        margin-top: 2rem;
+    }
+    
+    .cert-dot {
+        width: 12px;
+        height: 12px;
+    }
+    
+    /* Reduce depth effects on mobile */
+    .cert-badge.active img {
+        transform: translateZ(20px) scale(1.01);
+    }
+    
+    .cert-badge.active .absolute.top-4.right-4 {
+        transform: translateZ(40px) scale(1.05);
+    }
+    
+    .cert-badge.active .p-6 {
+        transform: translateZ(25px);
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .cert-slider-container {
+        perspective: 1500px;
+        min-height: 550px;
+        padding: 20px 0;
+    }
+    
+    .cert-badge {
+        min-width: 280px;
+        max-width: 280px;
+    }
+    
+    .cert-grid-slider {
+        gap: 1.5rem;
+    }
+    
+    .cert-badge.active {
+        transform: 
+            scale(1.02) 
+            rotateY(0deg) 
+            translateZ(40px)
+            translateY(-5px);
+    }
+    
+    .cert-nav-btn {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .cert-nav-btn i {
+        font-size: 1rem;
+    }
+    
+    /* Position buttons closer on small screens */
+    .cert-nav-btn.absolute.left-0 {
+        left: 4px;
+    }
+    
+    .cert-nav-btn.absolute.right-0 {
+        right: 4px;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    /* Remove hover effects on touch devices */
+    .cert-badge.active:hover {
+        transform: 
+            scale(1.05) 
+            rotateY(0deg) 
+            translateZ(60px)
+            translateY(-10px);
+    }
+    
+    .cert-badge.prev:hover,
+    .cert-badge.next:hover {
+        transform: 
+            scale(0.65) 
+            rotateY(15deg) 
+            translateZ(-80px)
+            translateX(-50px);
+    }
+    
+    /* Make buttons more touch-friendly */
+    .cert-nav-btn {
+        min-width: 50px;
+        min-height: 50px;
+    }
+    
+    .cert-dot {
+        min-width: 12px;
+        min-height: 12px;
+    }
+}
 
 
 
@@ -606,134 +1120,161 @@
         </div>
     </section>
 
-<section id="certifications" class="py-20 bg-white">
-    <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Certifications & Achievements</h2>
-            <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
-            <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+<section id="certifications" class="py-20 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden">
+    <div class="container mx-auto px-4 md:px-6">
+        <div class="text-center mb-12 md:mb-16">
+            <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-4">Certifications & Achievements</h2>
+            <div class="w-20 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto"></div>
+            <p class="text-gray-600 mt-4 max-w-2xl mx-auto px-4 text-sm md:text-base">
                 Professional certifications and continuous learning journey
             </p>
         </div>
 
-        <!-- Certification Cards -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Certification 1 -->
-            <div class="bg-white rounded-lg overflow-hidden shadow-lg cert-badge border-2 border-red-100">
-                <div class="relative overflow-hidden h-58 bg-gradient-to-br from-red-50 to-red-50">
-                    <img 
-                        src="hp-foundation.jpg" 
-                        alt="HP AI for beginners Certificate"
-                        class="w-full h-full object-cover"
-                    >
-                    <div class="absolute top-4 right-4">
-                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg">
-                            <i class="fas fa-robot text-2xl text-red-600"></i>
+        <!-- Ultra Premium 3D Slider Container -->
+        <div class="cert-slider-container">
+            <!-- Previous Button -->
+            <button class="cert-nav-btn absolute left-0 md:left-4 lg:left-8 top-1/2 -translate-y-1/2" onclick="prevCert()" aria-label="Previous certification">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <!-- Slider Wrapper -->
+            <div class="cert-slider-wrapper">
+                <!-- Certification Cards -->
+                <div class="cert-grid-slider" id="certSlider">
+                    <!-- Certification 1 -->
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-2xl cert-badge active border-2 border-red-100">
+                        <div class="relative overflow-hidden h-48 md:h-64 bg-gradient-to-br from-red-50 to-rose-100">
+                            <img 
+                                src="hp-life-badge.png"
+                                class="w-full h-full object-cover"
+                            >
+                            <div class="absolute top-4 right-4">
+                                <div class="w-12 h-12 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center shadow-2xl">
+                                    <i class="fas fa-robot text-2xl md:text-3xl text-red-600"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 md:p-6">
+                            <h3 class="font-bold text-lg md:text-xl text-gray-800 
+                            mb-2">HP AI for Beginners</h3>
+                            <p class="text-xs md:text-sm text-red-600 font-semibold 
+                            mb-2 md:mb-3">HP Foundation Services</p>
+                            <p class="text-gray-600 text-xs md:text-sm mb-3 
+                            md:mb-4">Beginner certification in AI development and 
+                            deployment</p>
+                            <div class="flex justify-between items-center text-xs 
+                            md:text-sm pt-3 md:pt-4 border-t border-gray-200">
+                                <span class="text-gray-500 flex items-center gap-1 md:gap-2">
+                                    <i class="far fa-calendar"></i>Sep 2025
+                                </span>
+                                <a href="HP certificate.pdf" class="text-red-600 font-semibold link-3d">
+                                    View <i class="fas fa-external-link-alt ml-1"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="font-bold text-xl text-gray-800 mb-2">HP AI for beginners</h3>
-                    <p class="text-sm text-red-600 font-semibold mb-3">HP Foundation Services</p>
-                    <p class="text-gray-600 text-sm mb-4">Beginner certification in AI development and deployment</p>
-                    <div class="flex justify-between items-center text-sm pt-4 border-t border-gray-100">
-                        <span class="text-gray-500"><i class="far fa-calendar mr-1"></i>
-                            Sep 2025</span>
-                        <a href="HP certificate.pdf" class="text-red-600 bg-white-600 
-                        link-3d">
-                            View <i class="fas fa-external-link-alt ml-1"></i>
-                        </a>
+
+                    <!-- Certification 2 -->
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-2xl cert-badge next border-2 border-green-100">
+                        <div class="relative overflow-hidden h-48 md:h-64 bg-gradient-to-br from-green-50 to-emerald-100">
+                            <img 
+                                src="OCI AI foundation.jpeg" 
+                                alt="AI Foundation Associate Certificate"
+                                class="w-full h-full object-cover"
+                            >
+                            <div class="absolute top-4 right-4">
+                                <div class="w-12 h-12 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center shadow-2xl">
+                                    <i class="fas fa-brain text-2xl md:text-3xl text-green-600"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 md:p-6">
+                            <h3 class="font-bold text-lg md:text-xl text-gray-800 mb-2">AI Foundation Associate</h3>
+                            <p class="text-xs md:text-sm text-green-600 font-semibold mb-2 md:mb-3">Oracle Cloud Services</p>
+                            <p class="text-gray-600 text-xs md:text-sm mb-3 md:mb-4">Machine learning and AI fundamentals</p>
+                            <div class="flex justify-between items-center text-xs md:text-sm pt-3 md:pt-4 border-t border-gray-200">
+                                <span class="text-gray-500 flex items-center gap-1 md:gap-2">
+                                    <i class="far fa-calendar"></i>Oct 2025
+                                </span>
+                                <a href="OCI ai foundation eCertificate.pdf" class="text-green-600 font-semibold link-3d">
+                                    View <i class="fas fa-external-link-alt ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certification 3 -->
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-2xl cert-badge border-2 border-indigo-100">
+                        <div class="relative overflow-hidden h-48 md:h-64 bg-gradient-to-br from-indigo-50 to-purple-100">
+                            <img 
+                                src="gen ai badge.jpg" 
+                                alt="OCI Gen AI Professional Certificate"
+                                class="w-full h-full object-cover"
+                            >
+                            <div class="absolute top-4 right-4">
+                                <div class="w-12 h-12 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center shadow-2xl">
+                                    <i class="fas fa-robot text-2xl md:text-3xl text-indigo-600"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 md:p-6">
+                            <h3 class="font-bold text-lg md:text-xl text-gray-800 mb-2">OCI Gen AI Professional</h3>
+                            <p class="text-xs md:text-sm text-indigo-600 font-semibold mb-2 md:mb-3">Oracle Cloud Services</p>
+                            <p class="text-gray-600 text-xs md:text-sm mb-3 md:mb-4">Professional certification in Gen AI development</p>
+                            <div class="flex justify-between items-center text-xs md:text-sm pt-3 md:pt-4 border-t border-gray-200">
+                                <span class="text-gray-500 flex items-center gap-1 md:gap-2">
+                                    <i class="far fa-calendar"></i>Nov 2025
+                                </span>
+                                <a href="OCI Gen AI eCertificate.pdf" class="text-indigo-600 font-semibold link-3d">
+                                    View <i class="fas fa-external-link-alt ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Certification 2 -->
-            <div class="bg-white rounded-lg overflow-hidden shadow-lg cert-badge border-2 border-green-100">
-                <div class="relative overflow-hidden h-58 bg-gradient-to-br from-green-50 to-emerald-50">
-                    <img 
-                        src="OCI AI foundation.jpeg" 
-                        alt="AI Foundation Associate Certificate"
-                        class="w-full h-full object-cover"
-                    >
-                    <div class="absolute top-4 right-4">
-                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg">
-                            <i class="fas fa-brain text-2xl text-green-600"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="font-bold text-xl text-gray-800 mb-2">AI Foundation Associate</h3>
-                    <p class="text-sm text-green-600 font-semibold mb-3">Oracle Cloud Services</p>
-                    <p class="text-gray-600 text-sm mb-4">Machine learning and AI fundamentals</p>
-                    <div class="flex justify-between items-center text-sm pt-4 border-t border-gray-100">
-                        <span class="text-gray-500"><i class="far fa-calendar mr-1"></i>Oct 2025</span>
-                        <a href="OCI ai foundation eCertificate.pdf" class="text-green-600 
-                        bg-white-600  link-3d">
-                            View <i class="fas fa-external-link-alt ml-1"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <!-- Next Button -->
+            <button class="cert-nav-btn absolute right-0 md:right-4 lg:right-8 top-1/2 -translate-y-1/2" onclick="nextCert()" aria-label="Next certification">
+                <i class="fas fa-chevron-right"></i>
+            </button>
 
-            <!-- Certification 3 -->
-            <div class="bg-white rounded-lg overflow-hidden shadow-lg cert-badge border-2 border-indigo-100">
-                <div class="relative overflow-hidden h-58 bg-gradient-to-br from-indigo-50 to-purple-50">
-                    <img 
-                        src="gen ai badge.jpg" 
-                        alt="OCI Gen AI Professional Certificate"
-                        class="w-full h-full object-cover"
-                    >
-                    <div class="absolute top-4 right-4">
-                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg">
-                            <i class="fas fa-robot text-2xl text-indigo-600"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="font-bold text-xl text-gray-800 mb-2">Oracle Cloud Infrastructure Gen AI Professional</h3>
-                    <p class="text-sm text-indigo-600 font-semibold mb-3">Oracle Cloud Services</p>
-                    <p class="text-gray-600 text-sm mb-4">Professional certification in Gen AI development and deployment</p>
-                    <div class="flex justify-between items-center text-sm pt-4 border-t border-gray-100">
-                        <span class="text-gray-500"><i class="far fa-calendar mr-1"></i>Nov 2025</span>
-                        <a href="OCI Gen AI eCertificate.pdf" class="text-indigo-600 
-                        bg-white-600 hover:text-white-700 link-3d">
-                            View <i class="fas fa-external-link-alt ml-1"></i>
-                        </a>
-                    </div>
-                </div>
+            <!-- Progress Dots -->
+            <div class="cert-dots">
+                <button class="cert-dot active" onclick="goToCert(0)" aria-label="Certificate 1"></button>
+                <button class="cert-dot" onclick="goToCert(1)" aria-label="Certificate 2"></button>
+                <button class="cert-dot" onclick="goToCert(2)" aria-label="Certificate 3"></button>
             </div>
         </div>
 
-        <!-- Achievement Stats - Centered -->
-        <div class="mt-16 flex justify-center">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl">
+        <!-- Achievement Stats -->
+        <div class="mt-12 md:mt-16 flex justify-center px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-4xl w-full">
                 <div class="text-center">
-                    <div class="text-4xl font-bold text-indigo-600 mb-2">4</div>
-                    <p class="text-gray-600">Certifications</p>
+                    <div class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">4</div>
+                    <p class="text-gray-600 text-xs md:text-base">Certifications</p>
                 </div>
                 <div class="text-center">
-                    <div class="text-4xl font-bold text-green-600 mb-2">20+</div>
-                    <p class="text-gray-600">Learning Hours</p>
+                    <div class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-2">20+</div>
+                    <p class="text-gray-600 text-xs md:text-base">Learning Hours</p>
                 </div>
                 <div class="text-center">
-                    <div class="text-4xl font-bold text-purple-600 mb-2">4</div>
-                    <p class="text-gray-600">Platforms</p>
+                    <div class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">4</div>
+                    <p class="text-gray-600 text-xs md:text-base">Platforms</p>
                 </div>
                 <div class="text-center">
-                    <div class="text-4xl font-bold text-orange-600 mb-2">86%</div>
-                    <p class="text-gray-600">Average Score</p>
+                    <div class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent mb-2">86%</div>
+                    <p class="text-gray-600 text-xs md:text-base">Average Score</p>
                 </div>
             </div>
         </div>
 
         <!-- View All Link -->
-        <div class="text-center mt-12">
-            <a href="certificates.html"
-            class="inline-flex items-center font-semibold text-indigo-600 link-3d">
-            View All Certifications
-            <i class="fas fa-arrow-right ml-2 transition-transform duration-200"></i>
-        </a>
-
+        <div class="text-center mt-8 md:mt-12">
+            <a href="certificates.html" class="inline-flex items-center font-semibold text-indigo-600 link-3d text-sm md:text-base">
+                View All Certifications
+                <i class="fas fa-arrow-right ml-2 transition-transform duration-200"></i>
+            </a>
         </div>
     </div>
 </section>
@@ -1094,12 +1635,105 @@ Leverages natural language processing (NLP) and data-driven algorithms for accur
             menuBtn.click();
         }
     });
-    </script>
+    let currentCertIndex = 0;
+const certCards = document.querySelectorAll('.cert-badge');
+const certDots = document.querySelectorAll('.cert-dot');
+const totalCerts = certCards.length;
 
+function updateCertSlider() {
+    certCards.forEach((card, index) => {
+        card.classList.remove('active', 'prev', 'next');
+        
+        if (index === currentCertIndex) {
+            card.classList.add('active');
+        } else if (index === (currentCertIndex - 1 + totalCerts) % totalCerts) {
+            card.classList.add('prev');
+        } else if (index === (currentCertIndex + 1) % totalCerts) {
+            card.classList.add('next');
+        }
+    });
+
+    certDots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentCertIndex);
+    });
+
+    const slider = document.getElementById('certSlider');
+    const isMobile = window.innerWidth <= 768;
+    const cardWidth = isMobile ? 300 : 400;
+    const gap = isMobile ? 32 : 48;
+    const offset = -currentCertIndex * (cardWidth + gap);
+    slider.style.transform = `translateX(calc(50% - ${cardWidth/2}px + ${offset}px))`;
+}
+
+function nextCert() {
+    currentCertIndex = (currentCertIndex + 1) % totalCerts;
+    updateCertSlider();
+}
+
+function prevCert() {
+    currentCertIndex = (currentCertIndex - 1 + totalCerts) % totalCerts;
+    updateCertSlider();
+}
+
+function goToCert(index) {
+    currentCertIndex = index;
+    updateCertSlider();
+}
+
+let certAutoPlay = setInterval(nextCert, 6000);
+
+const sliderContainer = document.querySelector('.cert-slider-container');
+sliderContainer?.addEventListener('mouseenter', () => {
+    clearInterval(certAutoPlay);
+});
+
+sliderContainer?.addEventListener('mouseleave', () => {
+    certAutoPlay = setInterval(nextCert, 6000);
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') prevCert();
+    if (e.key === 'ArrowRight') nextCert();
+});
+
+// Touch/Swipe support
+let touchStartX = 0;
+let touchEndX = 0;
+
+sliderContainer?.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+sliderContainer?.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    if (touchStartX - touchEndX > 50) {
+        nextCert();
+    }
+    if (touchEndX - touchStartX > 50) {
+        prevCert();
+    }
+}
+
+// Handle window resize
+let resizeTimer;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        updateCertSlider();
+    }, 250);
+});
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+    updateCertSlider();
+});
+</script>
 </body>
-
 </html>
-
 
 
 
